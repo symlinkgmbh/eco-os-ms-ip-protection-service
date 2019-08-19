@@ -1,0 +1,15 @@
+{
+  "environment": "test",
+  "version": "0.0.1",
+  "buildDate": "NOW",
+  "buildSHA": "4-8-15-16-23-42",
+  "name": "eco-os-ip-protection-service",
+  "serviceId": "010",
+  "server": {
+    "port": "8011"
+  },
+  "mongo": {
+    "db": "secondlock",
+    "collection": "ipprotection"
+  }
+}

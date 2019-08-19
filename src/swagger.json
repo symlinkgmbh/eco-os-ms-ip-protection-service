@@ -1,0 +1,210 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The ip protection service provides a configurable ip white- and blacklist. There is also a dynamic ip metric instance that check for dos attackts and strikingly many calls from a host. If the request threshold is reached, the ip will automaticly moved to blacklist. The threshold is configurable in the configuration service.",
+    "version": "1.0.0",
+    "title": "2ndLock ip protection service",
+    "termsOfService": "http://2ndLock.com",
+    "contact": {
+      "email": "jens@symlink.de"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "protection",
+      "description": "ip protection management (whitelist and blacklist)"
+    },
+    {
+      "name": "metrics",
+      "description": "metrics from ip address (dos protection state)"
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/protection": {
+      "post": {
+        "tags": ["protection"],
+        "summary": "add ip address to blacklist or whitelist",
+        "consumes": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      },
+      "get": {
+        "tags": ["protection"],
+        "summary": "get all stored ip addresses from whitelist and blacklist",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      }
+    },
+    "/protection/blacklist": {
+      "get": {
+        "tags": ["protection"],
+        "summary": "get all stored ip addresses from  blacklist",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["protection"],
+        "summary": "remove all addresses from blacklist",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      }
+    },
+    "/protection/whitelist": {
+      "get": {
+        "tags": ["protection"],
+        "summary": "get all stored ip addresses from whitelist",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["protection"],
+        "summary": "remove all addresses from whitelist",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      }
+    },
+    "/protection/address/id": {
+      "get": {
+        "tags": ["protection"],
+        "summary": "get current config from ip address by id",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      },
+      "put": {
+        "tags": ["protection"],
+        "summary": "update current config from ip address by id",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["protection"],
+        "summary": "delete ip address from store",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      }
+    },
+    "/protection/search/ip": {
+      "get": {
+        "tags": ["protection"],
+        "summary": "get config from ip address",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      }
+    },
+    "/protection/metric": {
+      "get": {
+        "tags": ["metrics"],
+        "summary": "get list from metric store",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      },
+      "post": {
+        "tags": ["metrics"],
+        "summary": "add address to metric store",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Failed"
+          }
+        }
+      }
+    },
+    "/heartbeat": {
+      "get": {
+        "tags": ["heartbeat"],
+        "summary": "get current heartbeat from service",
+        "description": "response with current service health",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
